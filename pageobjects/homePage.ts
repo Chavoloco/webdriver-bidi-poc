@@ -2,12 +2,12 @@ import Page from './page.js';
 
 class Homepage extends Page {
 
-    private elementCard = '//*[@class="card-body"]/h5[text()="Elements"]';
-    private formsCard = '//*[@class="card-body"]/h5[text()="Forms"]';
-    private alertsCard = '//*[@class="card-body"]/h5[text()="Alerts, Frame & Windows"]';
-    private widgetsCard = '//*[@class="card-body"]/h5[text()="Widgets"]';
-    private interactionsCard = '//*[@class="card-body"]/h5[text()="Interactions"]';
-    private bookStoreCard = '//*[@class="card-body"]/h5[text()="Book Store Application"]';
+    private elementCard = '//*[@class="card-body"]/h5[text()="Elements"]/../../..';
+    private formsCard = '//*[@class="card-body"]/h5[text()="Forms"]/../../..';
+    private alertsCard = '//*[@class="card-body"]/h5[text()="Alerts, Frame & Windows"]/../../..';
+    private widgetsCard = '//*[@class="card-body"]/h5[text()="Widgets"]/../../..';
+    private interactionsCard = '//*[@class="card-body"]/h5[text()="Interactions"]/../../..';
+    private bookStoreCard = '//*[@class="card-body"]/h5[text()="Book Store Application"]/../../..';
 
     private async getElement(selector: string) {
         return await $(selector);
@@ -44,8 +44,13 @@ class Homepage extends Page {
 
     public async goToSelectedPage(pageName: string) {
         const element = await this.selectElement(pageName);
-        element.click();
-        console.log(browser.getUrl());
+
+        await element.waitForClickable({
+            timeout: 5000,
+            timeoutMsg: 'Element was not clickable'
+        });
+
+        await element.click();
         
         await browser.waitUntil(
             async () => (await browser.execute(() => document.readyState)) === 'complete',

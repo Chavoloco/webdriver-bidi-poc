@@ -1,6 +1,11 @@
 {
+  
   "name": "webdriver-bidi-poc",
   "type": "module",
+  "scripts": {
+    "test": "wdio wdio.conf.js",
+    "ci": "npm run test"
+  },
   "devDependencies": {
     "@wdio/cli": "^8.40.2",
     "@wdio/local-runner": "^8.40.2",

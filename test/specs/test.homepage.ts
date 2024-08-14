@@ -32,33 +32,33 @@ describe('GSM Homepage', () => {
 
     it('should go to the Elements page', async () => {
         await homePage.goToSelectedPage('Elements page');
-        expect(browser.getUrl()).toContain('elements');
+        expect(await browser.getUrl()).toContain('elements');
     });
 
     it('should go to the Forms page', async () => {
         await homePage.goToSelectedPage('Forms page');
-        expect(browser.getUrl()).toContain('forms');
+        expect(await browser.getUrl()).toContain('forms');
     });
 
     it('should go to the Alerts page', async () => {
         await homePage.goToSelectedPage('Alerts page');
-        expect(browser.getUrl()).toContain('alertsWindows');
+        expect(await browser.getUrl()).toContain('alertsWindows');
     });
 
     it('should go to the Widgets page', async () => {
         await homePage.goToSelectedPage('Widgets page');
-        expect(browser.getUrl()).toContain('widgets');
+        expect(await browser.getUrl()).toContain('widgets');
 
     });
 
     it('should go to the Interactions page', async () => {
         await homePage.goToSelectedPage('Interactions page');
-        expect(browser.getUrl()).toContain('interaction');
+        expect(await browser.getUrl()).toContain('interaction');
     });
 
     it('should go to the Book store page', async () => {
         await homePage.goToSelectedPage('Book store page');
-        expect(browser.getUrl()).toContain('books');
+        expect(await browser.getUrl()).toContain('books');
     });
 
 })

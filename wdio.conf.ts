@@ -62,7 +62,7 @@ export const config: Options.Testrunner = {
         maxInstances: 1,
         browserName: 'chrome',  
         'goog:chromeOptions': {
-            args: ['headless', 'disable-gpu']
+            args: ['headless', 'disable-gpu', '--window-size=1280,800']
         },
         webSocketUrl: true
     }],
